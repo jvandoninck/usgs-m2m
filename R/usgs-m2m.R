@@ -46,9 +46,9 @@ sendRequest <- function(url, data, apiKey=NULL){
 }
 
 
-##  M2M Endpoints
+##  M2M Endpoints (https://m2m.cr.usgs.gov/api/docs/reference)
 ##---------------
-data-owner <- function(serviceUrl, apiKey, dataOwner){
+data_owner <- function(serviceUrl, apiKey, dataOwner){
   # This method is used to provide the contact information of the data owner.
   
   requestUrl <- paste0(serviceUrl,"data-owner")
@@ -71,7 +71,7 @@ dataset <- function(serviceUrl, apiKey,
   return(response)
 }
 
-dataset-bulk-products <- function(serviceUrl, apiKey,
+dataset_bulk_products <- function(serviceUrl, apiKey,
                                   datasetName=NULL){
   # Lists all available bulk products for a dataset - this does not guarantee scene availability.
   
@@ -82,7 +82,7 @@ dataset-bulk-products <- function(serviceUrl, apiKey,
   return(response)
 }
 
-dataset-catalogs <- function(serviceUrl, apikey){
+dataset_catalogs <- function(serviceUrl, apikey){
   # This method is used to retrieve the available dataset catalogs. 
   # The use of dataset catalogs are not required, but are used to group datasets by their use within our web applications. 
   
@@ -92,7 +92,7 @@ dataset-catalogs <- function(serviceUrl, apikey){
   return(response)
 }
 
-dataset-categories <- function(serviceUrl, apikey,
+dataset_categories <- function(serviceUrl, apikey,
                                  catalog=NULL, includeMessages=NULL, publicOnly=NULL, useCustomization=NULL, parentId=NULL, datasetFilter=NULL){
   # This method is used to search datasets under the categories.   
   
@@ -108,7 +108,7 @@ dataset-categories <- function(serviceUrl, apikey,
   return(response)
 }
 
-dataset-clear-customization <- function(serviceUrl, apiKey,
+dataset_clear_customization <- function(serviceUrl, apiKey,
                                         datasetName=NULL, metadataType=NULL){
   # This method is used the remove an entire customization or clear out a specific metadata type. 
   
@@ -120,7 +120,7 @@ dataset-clear-customization <- function(serviceUrl, apiKey,
   return(response)
 }
 
-dataset-coverage <- function(serviceUrl, apiKey, datasetName){
+dataset_coverage <- function(serviceUrl, apiKey, datasetName){
   # Returns coverage for a given dataset. 
   
   requestUrl <- paste0(serviceUrl,"dataset-coverage")
@@ -129,7 +129,7 @@ dataset-coverage <- function(serviceUrl, apiKey, datasetName){
   return(response)
 }
 
-dataset-download-options <- function(serviceUrl, apiKey, datasetName,
+dataset_download_options <- function(serviceUrl, apiKey, datasetName,
                                       sceneFilter=NULL){
   # This request lists all available products for a given dataset - this does not guarantee scene availability. 
   
@@ -140,7 +140,7 @@ dataset-download-options <- function(serviceUrl, apiKey, datasetName,
   return(response)
 }
 
-dataset-filters <- function(serviceUrl, apiKey, datasetName){
+dataset_filters <- function(serviceUrl, apiKey, datasetName){
   # This request is used to return the metadata filter fields for the specified dataset. 
   # These values can be used as additional criteria when submitting search and hit queries. 
   
@@ -150,7 +150,7 @@ dataset-filters <- function(serviceUrl, apiKey, datasetName){
   return(response)
 }
 
-dataset-get-customization <- function(serviceUrl, apiKey, datasetName){
+dataset_get_customization <- function(serviceUrl, apiKey, datasetName){
   # This method is used to retrieve metadata customization for a specific dataset. 
   
   requestUrl <- paste0(serviceUrl,"dataset-get-customization")
@@ -159,7 +159,7 @@ dataset-get-customization <- function(serviceUrl, apiKey, datasetName){
   return(response)
 }
 
-dataset-get-customizations <- function(serviceUrl, apiKey,
+dataset_get_customizations <- function(serviceUrl, apiKey,
                                         datasetNames=NULL, metadataType=NULL){
   # This method is used to retrieve metadata customizations for multiple datasets at once. 
   
@@ -171,7 +171,7 @@ dataset-get-customizations <- function(serviceUrl, apiKey,
   return(response)
 }
 
-dataset-messages <- function(serviceUrl, apiKey,
+dataset_messages <- function(serviceUrl, apiKey,
                                catalog=NULL, datasetName=NULL, datasetNames=NULL){
   # Returns any notices regarding the given datasets features. 
   
@@ -184,7 +184,7 @@ dataset-messages <- function(serviceUrl, apiKey,
   return(response)
 }
 
-dataset-metadata <- function(serviceUrl, apiKey, datasetName){
+dataset_metadata <- function(serviceUrl, apiKey, datasetName){
   # This method is used to retrieve all metadata fields for a given dataset. 
   
   requestUrl <- paste0(serviceUrl,"dataset-metadata")
@@ -193,7 +193,7 @@ dataset-metadata <- function(serviceUrl, apiKey, datasetName){
   return(response)
 }
 
-dataset-order-products <- function(serviceUrl, apiKey, datasetName){
+dataset_order_products <- function(serviceUrl, apiKey, datasetName){
   # Lists all available order products for a dataset - this does not guarantee scene availability. 
   
   requestUrl <- paste0(serviceUrl,"dataset-order-products")
@@ -202,7 +202,7 @@ dataset-order-products <- function(serviceUrl, apiKey, datasetName){
   return(response)
 }
 
-dataset-search <- function(serviceUrl, apiKey,
+dataset_search <- function(serviceUrl, apiKey,
                              catalog=NULL, categoryId=NULL, datasetName=NULL, includeMessages=NULL, publicOnly=NULL, includeUnknownSpatial=NULL,
                              temporalFilter=NULL, spatialFilter=NULL, sortDirection=NULL, sortField=NULL, useCustomization=NULL){
   # This method is used to find datasets available for searching. 
@@ -227,7 +227,7 @@ dataset-search <- function(serviceUrl, apiKey,
   searchResults <- sendRequest(requestUrl, payload, apiKey=apiKey)
 }
 
-dataset-set-customization <- function(serviceUrl, apiKey, datasetName,
+dataset_set_customization <- function(serviceUrl, apiKey, datasetName,
                                       excluded=NULL, metadata=NULL, searchSort=NULL){
   # This method is used to create or update dataset customizations for a given dataset. 
   
@@ -240,7 +240,7 @@ dataset-set-customization <- function(serviceUrl, apiKey, datasetName,
   return(response)
 }
 
-dataset-set-customizations <- function(serviceUrl, apiKey, datasetCustomization){
+dataset_set_customizations <- function(serviceUrl, apiKey, datasetCustomization){
   # This method is used to create or update customizations for multiple datasets at once. 
   
   requestUrl <- paste0(serviceUrl,"dataset-set-customizations")
@@ -249,7 +249,7 @@ dataset-set-customizations <- function(serviceUrl, apiKey, datasetCustomization)
   return(response)
 }
 
-download-complete-proxied <- function(serviceUrl, apiKey, proxiedDownloads){
+download_complete_proxied <- function(serviceUrl, apiKey, proxiedDownloads){
   # Updates status to 'C' with total downloaded file size for completed proxied downloads 
   
   requestUrl <- paste0(serviceUrl,"download-complete-proxied")
@@ -258,7 +258,7 @@ download-complete-proxied <- function(serviceUrl, apiKey, proxiedDownloads){
   return(response)
 }
 
-download-eula <- function(serviceUrl, apiKey,
+download_eula <- function(serviceUrl, apiKey,
                           eulaCode=NULL, eulaCodes=NULL){
   # Gets the contents of a EULA from the eulaCodes. 
   
@@ -270,7 +270,7 @@ download-eula <- function(serviceUrl, apiKey,
   return(response)
 }
 
-download-labels <- function(serviceUrl, apiKey,
+download_labels <- function(serviceUrl, apiKey,
                             downloadApplication=NULL){
   # Gets a list of unique download labels associated with the orders. 
   
@@ -281,7 +281,7 @@ download-labels <- function(serviceUrl, apiKey,
   return(response)
 }
 
-download-options <- function(serviceUrl, apiKey, datasetName,
+download_options <- function(serviceUrl, apiKey, datasetName,
                              entityIds=NULL, listId=NULL){
   # The download options request is used to discover downloadable products for each dataset. 
   # If a download is marked as not available, an order must be placed to generate that product. 
@@ -294,7 +294,7 @@ download-options <- function(serviceUrl, apiKey, datasetName,
   return(response)
 }
 
-download-order-load <- function(serviceUrl, apiKey,
+download_order_load <- function(serviceUrl, apiKey,
                                 downloadApplication=NULL, label=NULL){
   # This method is used to prepare a download order for processing by moving the scenes into the queue for processing 
   
@@ -306,7 +306,7 @@ download-order-load <- function(serviceUrl, apiKey,
   return(response)
 }
 
-download-order-remove <- function(serviceUrl, apiKey, label,
+download_order_remove <- function(serviceUrl, apiKey, label,
                                   downloadApplication=NULL){
   # This method is used to remove an order from the download queue. 
   
@@ -317,7 +317,7 @@ download-order-remove <- function(serviceUrl, apiKey, label,
   return(response)
 }
 
-download-remove <- function(serviceUrl, apiKey, downloadId){
+download_remove <- function(serviceUrl, apiKey, downloadId){
   # Removes an item from the download queue. 
   
   requestUrl <- paste0(serviceUrl,"download-remove")
@@ -326,7 +326,7 @@ download-remove <- function(serviceUrl, apiKey, downloadId){
   return(response)
 }
 
-download-request <- function(serviceUrl, apiKey,
+download_request <- function(serviceUrl, apiKey,
                              configurationCode=NULL, downloadApplication=NULL, downloads=NULL, dataPaths=NULL, label=NULL, systemId=NULL){
   # This method is used to insert the requested downloads into the download queue and returns the available download URLs.
   
@@ -357,7 +357,7 @@ download-request <- function(serviceUrl, apiKey,
   return(response)
 }
 
-download-retrieve <- function(serviceUrl, apiKey,
+download_retrieve <- function(serviceUrl, apiKey,
                               downloadApplication=NULL, label=NULL){
   # Returns all available and previously requests but not completed downloads.
   # This API may be online while the distribution systems are unavailable. 
@@ -371,7 +371,7 @@ download-retrieve <- function(serviceUrl, apiKey,
   return(response)
 }
 
-download-search <- function(serviceUrl, apiKey,
+download_search <- function(serviceUrl, apiKey,
                             activeOnly=NULL, label=NULL, downloadApplication=NULL){
   # This method is used to search for downloads within the queue, regardless of status, that match the given label. 
   
@@ -384,7 +384,7 @@ download-search <- function(serviceUrl, apiKey,
   return(response)
 }
 
-download-summary <- function(serviceUrl, apiKey, downloadApplication, label,
+download_summary <- function(serviceUrl, apiKey, downloadApplication, label,
                              sendEmail=NULL){
   # Gets a summary of all downloads, by dataset, for any matching labels. 
   
@@ -420,7 +420,7 @@ login <- function(serviceUrl, username, password,
   return(response)
 }
 
-login-app-guest <- function(serviceUrl, applicationToken, userToken){ #To be checked
+login_app_guest <- function(serviceUrl, applicationToken, userToken){ #To be checked
   # This endpoint assumes that the calling application has generated a single-use token to complete the authentication and return an API Key specific to that guest user. 
   # All subsequent requests should use the API Key under the 'X-Auth-Token' HTTP header as the Single Sign-On cookie will not authenticate those requests. 
   # The API Key will be active for two hours, which is restarted after each subsequent request, and should be destroyed upon final use of the service by calling the logout method.
@@ -432,7 +432,7 @@ login-app-guest <- function(serviceUrl, applicationToken, userToken){ #To be che
   return(response)
 }
 
-login-sso <- function(serviceUrl,
+login_sso <- function(serviceUrl,
                       userContext=NULL){ #To be checked
   # This endpoint assumes that a user has an active ERS Single Sign-On Cookie in their browser or attached to this request. 
   # Authentication will be performed from the Single Sign-On Cookie and return an API Key upon successful authentication. 
@@ -463,7 +463,7 @@ notifications <- function(serviceUrl, apiKey, systemId){
   return(response)
 }
 
-order-products <- function(serviceUrl, apiKey, datasetName,
+order_products <- function(serviceUrl, apiKey, datasetName,
                            entityIds=NULL, listId=NULL){
   # Gets a list of currently selected products - paginated. 
   
@@ -475,7 +475,7 @@ order-products <- function(serviceUrl, apiKey, datasetName,
   return(response)
 }
 
-order-submit <- function(serviceUrl, apiKey, products,
+order_submit <- function(serviceUrl, apiKey, products,
                          autoBulkOrder=NULL, processingParameters=NULL, priority=NULL, orderComment=NULL, systemId=NULL){
   # Submits the current product list as a TRAM order - internally calling tram-order-create. 
   
@@ -499,7 +499,7 @@ permissions <- function(serviceUrl, apiKey){
   return(response)
 }
 
-scene-list-add <- function(serviceUrl, apiKey, listId, datasetName,
+scene_list_add <- function(serviceUrl, apiKey, listId, datasetName,
                            idField=NULL, entityId=NULL, entityIds=NULL, timeToLive=NULL, checkDownloadRestriction=NULL){
   # Adds items in the given scene list. 
   
@@ -514,7 +514,7 @@ scene-list-add <- function(serviceUrl, apiKey, listId, datasetName,
   return(response)
 }
 
-scene-list-get <- function(serviceUrl, apiKey, listId, datasetName=NULL, startingNumber=NULL, maxResults=NULL){
+scene_list_get <- function(serviceUrl, apiKey, listId, datasetName=NULL, startingNumber=NULL, maxResults=NULL){
   # Returns items in the given scene list. 
   
   requestUrl <- paste0(serviceUrl,"scene-list-get")
@@ -526,7 +526,7 @@ scene-list-get <- function(serviceUrl, apiKey, listId, datasetName=NULL, startin
   return(response)
 }
 
-scene-list-remove <- function(serviceUrl, apiKey, listId,
+scene_list_remove <- function(serviceUrl, apiKey, listId,
                               datasetName=NULL, entityId=NULL, entityIds=NULL){
   # Removes items from the given list. 
   # If no datasetName is provided, the call removes the whole list.
@@ -542,7 +542,7 @@ scene-list-remove <- function(serviceUrl, apiKey, listId,
   return(response)
 }
 
-scene-list-summary <- function(serviceUrl, apiKey, listId,
+scene_list_summary <- function(serviceUrl, apiKey, listId,
                                datasetName=NULL){
   # Returns summary information for a given list. 
   
@@ -553,7 +553,7 @@ scene-list-summary <- function(serviceUrl, apiKey, listId,
   return(response)
 }
 
-scene-list-types <- function(serviceUrl, apiKey,
+scene_list_types <- function(serviceUrl, apiKey,
                              listFilter=NULL){
   # Returns scene list types (exclude, search, order, bulk, etc). 
   
@@ -564,7 +564,7 @@ scene-list-types <- function(serviceUrl, apiKey,
   return(response)
 }
 
-scene-metadata <- function(serviceUrl, apiKey, datasetName, entityId, 
+scene_metadata <- function(serviceUrl, apiKey, datasetName, entityId, 
                            idType=NULL, metadataType=NULL, includeNullMetadataValues=NULL, useCustomization=NULL){
   # This request is used to return metadata for a given scene. 
   
@@ -578,7 +578,7 @@ scene-metadata <- function(serviceUrl, apiKey, datasetName, entityId,
   return(response)
 }
 
-scene-metadata-list <- function(serviceUrl, apiKey, listId,
+scene_metadata_list <- function(serviceUrl, apiKey, listId,
                                 datasetName=NULL, metadataType=NULL, includeNullMetadataValues=NULL, useCustomization=NULL){
   # Scene Metadata where the input is a pre-set list. 
   
@@ -592,7 +592,7 @@ scene-metadata-list <- function(serviceUrl, apiKey, listId,
   return(response)
 }
 
-scene-metadata-xml <- function(serviceUrl, apiKey, datasetName, entityId,
+scene_metadata_xml <- function(serviceUrl, apiKey, datasetName, entityId,
                                metadataType=NULL){
   # Returns metadata formatted in XML, ahering to FGDC, ISO and EE scene metadata formatting standards. 
   
@@ -603,7 +603,7 @@ scene-metadata-xml <- function(serviceUrl, apiKey, datasetName, entityId,
   return(response)
 }
 
-scene-search <- function(serviceUrl, apiKey, datasetName,
+scene_search <- function(serviceUrl, apiKey, datasetName,
                            maxResults=NULL,startingNumber=NULL,metadataType=NULL, sortField=NULL,sortDirection=NULL,sortCustomization=NULL,
                            useCustomization=NULL,sceneFilter=NULL,compareListName=NULL, bulkListName=NULL,orderListName=NULL,excludeListName=NULL,
                            includeNullMetadataValues=NULL){
@@ -643,7 +643,7 @@ scene-search <- function(serviceUrl, apiKey, datasetName,
   return(response)
 }
 
-scene-search-delete <- function(serviceUrl, apiKey, datasetName,
+scene_search_delete <- function(serviceUrl, apiKey, datasetName,
                                 maxResults=NULL, startingNumber=NULL, sortField=NULL, sortDirection=NULL, temporalFilter=NULL){
   # This method is used to detect deleted scenes from datasets that support it. 
   # Supported datasets are determined by the 'supportDeletionSearch' parameter in the 'datasets' response. 
@@ -660,7 +660,7 @@ scene-search-delete <- function(serviceUrl, apiKey, datasetName,
   return(response)
 }
 
-scene-search-secondary <- function(serviceUrl, apiKey, entityId, datasetName,
+scene_search_secondary <- function(serviceUrl, apiKey, entityId, datasetName,
                                    maxResults=NULL, startingNumber=NULL, metadataType=NULL, sortField=NULL, sortDirection=NULL,
                                    compareListName=NULL, bulkListName=NULL, orderListName=NULL, excludeListName=NULL){
   # This method is used to find the related scenes for a given scene. 
@@ -680,7 +680,7 @@ scene-search-secondary <- function(serviceUrl, apiKey, entityId, datasetName,
   return(response)
 }
 
-tram-order-detail-update <- function(serviceUrl, apiKey, orderNumber, detailKey, detailValue){
+tram_order_detail_update <- function(serviceUrl, apiKey, orderNumber, detailKey, detailValue){
   # This method is used to set metadata for an order. 
   
   requestUrl <- paste0(serviceUrl,"tram-order-detail-update")
@@ -689,7 +689,7 @@ tram-order-detail-update <- function(serviceUrl, apiKey, orderNumber, detailKey,
   return(response)
 }
 
-tram-order-details <- function(serviceUrl, apiKey, orderNumber){
+tram_order_details <- function(serviceUrl, apiKey, orderNumber){
   # This method is used to view the metadata within an order. 
   
   requestUrl <- paste0(serviceUrl,"tram-order-details")
@@ -698,7 +698,7 @@ tram-order-details <- function(serviceUrl, apiKey, orderNumber){
   return(response)
 }
 
-tram-order-details-clear <- function(serviceUrl, apiKey, orderNumber){
+tram_order_details_clear <- function(serviceUrl, apiKey, orderNumber){
   # This method is used to clear all metadata within an order.  
   
   requestUrl <- paste0(serviceUrl,"tram-order-details-clear")
@@ -707,7 +707,7 @@ tram-order-details-clear <- function(serviceUrl, apiKey, orderNumber){
   return(response)
 }
 
-tram-order-details-remove <- function(serviceUrl, apiKey, orderNumber, detailKey){
+tram_order_details_remove <- function(serviceUrl, apiKey, orderNumber, detailKey){
   # This method is used to remove the metadata within an order. 
   
   requestUrl <- paste0(serviceUrl,"tram-order-details-remove")
@@ -716,7 +716,7 @@ tram-order-details-remove <- function(serviceUrl, apiKey, orderNumber, detailKey
   return(response)
 }
 
-tram-order-search <- function(serviceUrl, apiKey,
+tram_order_search <- function(serviceUrl, apiKey,
                               orderId=NULL, maxResults=NULL, systemId=NULL, sortAsc=NULL, sortField=NULL, statusFilter=NULL){
   # Search TRAM orders. 
   
@@ -732,7 +732,7 @@ tram-order-search <- function(serviceUrl, apiKey,
   return(response)
 }
 
-tram-order-status <- function(serviceUrl, apiKey, orderNumber){
+tram_order_status <- function(serviceUrl, apiKey, orderNumber){
   # Gets the status of a TRAM order. 
   
   requestUrl <- paste0(serviceUrl,"tram-order-status")
@@ -741,7 +741,7 @@ tram-order-status <- function(serviceUrl, apiKey, orderNumber){
   return(response)
 }
 
-tram-order-units <- function(serviceUrl, apiKey, orderNumber){
+tram_order_units <- function(serviceUrl, apiKey, orderNumber){
   # Lists units for a specified order. 
   
   requestUrl <- paste0(serviceUrl,"tram-order-units")
@@ -750,7 +750,7 @@ tram-order-units <- function(serviceUrl, apiKey, orderNumber){
   return(response)
 }
 
-user-preference-get <- function(serviceUrl, apiKey,
+user_preference_get <- function(serviceUrl, apiKey,
                                 systemId=NULL, setting=NULL){
   # (Description Unavailable)
   
@@ -762,7 +762,7 @@ user-preference-get <- function(serviceUrl, apiKey,
   return(response)
 }
 
-user-preference-set <- function(serviceUrl, apiKey,
+user_preference_set <- function(serviceUrl, apiKey,
                                 systemId=NULL, userPreferences=NULL){
   # (Description Unavailable)
   
@@ -774,130 +774,189 @@ user-preference-set <- function(serviceUrl, apiKey,
   return(response)
 }
 
-# m2m-FunctionName <- function(serviceUrl, apiKey,
-#                          parameter1=NULL,
-#                          paramter2=NULL){
-#   # Method info
-#   
-#   requestUrl <- paste0(serviceUrl,"servicepoint")
-#   payload <- list()
-#   if(!is.null(parameter1)) payload$parameter1 <- parameter1
-#   if(!is.null(parameter2)) payload$parameter2 <- parameter2
-#   
-#   response <- sendRequest(requestUrl, payload, apiKey=apiKey)
-#   return(response)
-# }
-
 ##---------------
 
-##  Filters
+##  Data Types (https://m2m.cr.usgs.gov/api/docs/datatypes)
+### General
 
-
-
-
-
-
-
-
-
-
-
-#Build filters
-  ##Scene filter
-buildSceneFilter <- function(acquisitionFilter=NULL, cloudCoverFilter=NULL, datasetName=NULL,
-                             ingestFilter=NULL, metadataFilter=NULL, seasonalFilter=NULL,
-                             spatialFilter=NULL){
-  sceneFilter <- list()
-  if(!is.null(acquisitionFilter)) sceneFilter$acquisitionFilter <- acquisitionFilter
-  if(!is.null(cloudCoverFilter)) sceneFilter$cloudCoverFilter <- cloudCoverFilter
-  if(!is.null(datasetName)) sceneFilter$datasetName <- datasetName
-  if(!is.null(ingestFilter)) sceneFilter$ingestFilter <- ingestFilter
-  if(!is.null(metadataFilter)) sceneFilter$metadataFilter <- metadataFilter
-  if(!is.null(seasonalFilter)) sceneFilter$seasonalFilter <- seasonalFilter
-  if(!is.null(spatialFilter)) sceneFilter$spatialFilter <- spatialFilter
+AcquisitionFilter <- function(start, end,
+                              startTime=NULL, endTime=NULL){
+  #Note: Searching by time field currently not possible
   
-  return(sceneFilter)
+  start <- as.character(as.Date(as.character(start), 
+                                tryFormats=c('%Y%m%d', "%Y-%m-%d", '%d/%m/%Y', '%d%m%Y', '%m/%d/%Y', '%m%d%Y')))
+  end <- as.character(as.Date(as.character(end), 
+                              tryFormats=c('%Y%m%d', "%Y-%m-%d", '%d/%m/%Y', '%d%m%Y', '%m/%d/%Y', '%m%d%Y')))
+  if(!is.null(startTime)) start <- paste0(start,"T",startTime)
+  if(!is.null(endTime)) end <- paste0(end,"T",endTime)
+  if (as.numeric(as.Date(start) - as.Date(end))>0) warning('"end" is before "start"')
+  filter <- list(start=start, end=end)
+  return(filter)
 }
 
-
-  ##Acquisition filter
-buildAcquisitionFilter <- function(startDate, endDate,
-                                   startTime=NULL, endTime=NULL){
-  
-  startDate <- paste0(substr(startDate,1,4), "-", substr(startDate,5,6), "-", substr(startDate,7,8))
-  endDate <- paste0(substr(endDate,1,4), "-", substr(endDate,5,6), "-", substr(endDate,7,8))
-  
-  if(is.null(startTime)) startDate <- paste0(startDate,"T00:00:00") else startDate <- paste0(startDate,"T",startTime)
-  if(is.null(endTime)) endDate <- paste0(endDate,"T23:59:59") else endDate <- paste0(endDate,"T",endTime)
-  
-  acquisitionFilter <- list(start=startDate, end=endDate)
-  if (as.numeric(as.Date(startDate) - as.Date(endDate))>0) warning('"endDate" is before "startDate"')
-  return(acquisitionFilter)
+CloudCoverFilter <- function(min=0, max=100, includeUnknown=FALSE){
+  filter <- list(min=min, max=max, includeUnknown=includeUnknown)
+  return(filter)
 }
 
-  ##Cloud cover filter
-buildCloudCoverFilter <- function(minCC=0, maxCC=100, includeUnknown=FALSE){
-  cloudCoverFilter <- list(min=minCC, max=maxCC, includeUnknown=includeUnknown)
+Coordinate <- function(latitude, longitude){
+  coordinate <- list(latitude=latitude, longitude=longitude)
 }
+# Coordinate - to do
 
-  ##Ingest filter
-buildIngestFilter <- buildAcquisitionFilter
+# DateRange - to do
 
-  ##Metadata filter #TO BE COMPLETED
-metaDataFilter <- buildMetadataFilter(filterType,
-                                      childFilters=NULL,
-                                      ){
-  
-  if(filterType=="and" | filterType=="or"){
-    #do something
-    
-  } else if(filterType=="between"){
-    #do something
-    
-  } else if(filterType=="value"){
-    #do something
-    
-  } else {
-    stop('"filterType" must be one of ["and", "or", "between", "value"]')
-  }
-  
-  
-  return(metaDataFilter)
-}
+# GeoJson - to do
 
-  ##Seasonal filter
-buildSeasonalFilter <- function(months){
+IngestFilter <- AcquisitionFilter
+
+# MetadataFilter/Metadata: use MetadataAnd, MetadataBetween, MetadataOr, or MetadataValue - to do
+#TO BE COMPLETED
+# metaDataFilter <- buildMetadataFilter(filterType,
+#                                       childFilters=NULL,
+# ){
+#   
+#   if(filterType=="and" | filterType=="or"){
+#     #do something
+#     
+#   } else if(filterType=="between"){
+#     #do something
+#     
+#   } else if(filterType=="value"){
+#     #do something
+#     
+#   } else {
+#     stop('"filterType" must be one of ["and", "or", "between", "value"]')
+#   }
+#   
+#   
+#   return(metaDataFilter)
+# }
+
+SeasonalFilter <- function(months){
   if (length(months)==1){
     #can't make filter work on single integer, so replicating value. To be improved.
-    seasonalFilter <- rep(months,2)
+    filter <- rep(months,2)
   } else {
-    seasonalFilter <- months
+    filter <- months
   }
+  return(filter)
 }
 
-  ##Spatial filter
-buildSpatialFilter <- function(type,
-                               llLat=NULL, llLon=NULL, urLat=NULL, urLon=NULL,
-                               geoJson=NULL){
+SceneFilter <- function(acquisitionFilter=NULL, cloudCoverFilter=NULL, datasetName=NULL, ingestFilter=NULL, 
+                        metadataFilter=NULL, seasonalFilter=NULL, spatialFilter=NULL){
+  filter <- list()
+  if(!is.null(acquisitionFilter)) filter$acquisitionFilter <- acquisitionFilter
+  if(!is.null(cloudCoverFilter)) filter$cloudCoverFilter <- cloudCoverFilter
+  if(!is.null(datasetName)) filter$datasetName <- datasetName
+  if(!is.null(ingestFilter)) filter$ingestFilter <- ingestFilter
+  if(!is.null(metadataFilter)) filter$metadataFilter <- metadataFilter
+  if(!is.null(seasonalFilter)) filter$seasonalFilter <- seasonalFilter
+  if(!is.null(spatialFilter)) filter$spatialFilter <- spatialFilter
+  return(filter)
+}
+
+# SpatialBounds: use spatialBoundsMbr or geoJson - to do
+
+SpatialFilter <- function(type,
+                          ll=NULL, ur=NULL, llLat=NULL, llLon=NULL, urLat=NULL, urLon=NULL,
+                          geoJson=NULL){
   if(type=="mbr"){
-    if(is.null(llLat) | is.null(llLon) | is.null(urLat) | is.null(urLon)) stop('In "buildSpatialFilter" - Missing coordinate')
-    spatialFilter <- list(filterType=type,
-                          lowerLeft=list(latitude=llLat, longitude=llLon),
-                          upperRight=list(latitude=urLat, longitude=urLon))
-    if(llLat>urLat) warning('Lower left latitude larger than upper right latitude')
-    if(llLon>urLon) warning('Lower left longiture larger than upper right longitude')
-    
+    if(!is.null(ll) & !is.null(ur)){
+      filter <- list(filterType=type,
+                     lowerLeft=ll, upperRight=ur)
+    } else if (!(is.null(llLat) | is.null(llLon) | is.null(urLat) | is.null(urLon))) {
+      filter <- list(filterType=type,
+                     lowerLeft=list(latitude=llLat, longitude=llLon),
+                     upperRight=list(latitude=urLat, longitude=urLon))
+    } else{
+      stop('Missing coordinate')
+    }
+    if(filter$lowerLeft$latitude > filter$upperRight$latitude) warning('Lower left latitude larger than upper right latitude')
+    if(filter$lowerLeft$longitude > filter$upperRight$longitude) warning('Lower left longitude larger than upper right longitude')
   } else if (type=="geoJson") {
-    spatialFilter <- list(filterType=type,
+    filter <- list(filterType=type,
                           geoJson=geoJson)
   } else{
     stop('"type" must be one of "mbr" or "geoJson"')
   }
-  return(spatialFilter)
+  return(filter)
 }
 
-  ##Temporal filter
-buildTemporalFilter <- buildAcquisitionFilter
+
+# UserContext - to do
+
+# TemporalCoverage - to do
+
+TemporalFilter <- AcquisitionFilter
+
+
+### Download
+# To do
+# Download (Response)
+# Download (Input)
+# DownloadQueueDownload
+# Eula
+# FilepathDownload
+# Options
+# ProductDownload
+# ProxiedDownload
+# Selected
+
+### Export
+# To do
+# MetadataExport
+# MetadataField
+
+### Inventory
+# To do
+# Browse
+# Dataset
+# DatasetCategory
+# DatasetCustomization
+# Metadata
+# SearchSort
+# SortCustomization
+# DatasetFilter
+# FieldConfig
+
+### Notification
+# To do
+# Notification
+
+### Orders
+# To do
+# Product (Response)
+# Product (Input)
+# RunOptions
+# Scene
+
+### Subscription
+# To do
+# IngestSubscription
+# IngestSubscriptionLog
+# SubscriptionDataset
+
+### TRAM
+# To do
+# TramOrder
+# TramUnit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
